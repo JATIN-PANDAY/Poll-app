@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+
+{%block body%}
+<div class="card mt-5">
+    <div class="card-header">
+        <h6 class="text-dark">Create A New Poll :
+        </h6>
+    </div>
+
+    <div class="card-body">
+
+        <div class="container-xxl py-5">
+            <!-- Message framework -->
+            {% if messages %}
+
+            <ul class="messages">
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <form action="{% url 'createquestion'%}" method='POST'>
+                            {%csrf_token%}
+                            <div class="row g-3">
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a message here" id="message"
+                                            style="height: 150px" name='question' required></textarea>
+                                        <label for="message">Question</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="subject" placeholder="Subject"
+                                            name="option1" required>
+                                        <label for="subject">First Options</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="subject" placeholder="Subject"
+                                            name="option2" required>
+                                        <label for="subject">Second Options</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="subject" placeholder="Subject"
+                                            name="option3" required>
+                                        <label for="subject">Three Options</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+{%endblock body%}

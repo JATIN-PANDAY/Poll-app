@@ -1,0 +1,64 @@
+{%extends 'base.html'%}
+
+{%block body%}
+<div class="card mt-5">
+    <div class="card-header">
+        <h6 class="text-dark">Vote :
+        </h6>
+    </div>
+
+    <div class="card-body">
+
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="row g-3">
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <h4 class="text-dark">{{poll.question}}</h4>
+                                </div>
+                            </div>
+                            <label for="opt-1" class="opt-1">
+                                <div class="row">
+                                    <div class="column">
+                                        <span class="circle"></span>
+                                        <span class="text">{{poll.option_A}}</span>
+
+                                    </div>
+                                    <span class="percent">{{poll.option_A_count}} Votes</span>
+                                </div>
+                                <div class="progress" style='--w:30;'></div>
+                            </label>
+                            <label for="opt-2" class="opt-2">
+                                <div class="row">
+                                    <div class="column">
+                                        <span class="circle"></span>
+                                        <span class="text">{{poll.option_B}}</span>
+
+                                    </div>
+                                    <span class="percent">{{poll.option_B_count}} Votes</span>
+                                </div>
+                                <div class="progress" style='--w:30;'></div>
+                            </label>
+                            <label for="opt-3" class="opt-3">
+                                <div class="row">
+                                    <div class="column">
+                                        <span class="circle"></span>
+                                        <span class="text">{{poll.option_C}}</span>
+
+                                    </div>
+                                    <span class="percent">{{poll.option_C_count}} Votes</span>
+                                </div>
+                                <div class="progress" style='--w:30;'></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->
+{%endblock body%}
