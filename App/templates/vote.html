@@ -1,58 +1,57 @@
-{%extends 'base.html'%}
-{%load static%}
+{% extends 'base.html' %}
+{% load static %}
 
-
-
-{%block body%}
+{% block body %}
 <div class="card mt-5">
-<div class="card-header">
-    <h6 class="text-dark">Caste your vote :</h6>
-</div>
+    <div class="card-header">
+        <h6 class="text-dark">Cast your vote:</h6>
+    </div>
 
     <div class="card-body">
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <form action="{% url 'vote' poll.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row g-3">
 
-    <div class="container-xxl py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6">
-                        <form action="{% url 'vote' poll.id %}" method='POST'>
-                            {%csrf_token%}
-                        <div class="row g-3">
-                            
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <h4 class="text-dark">{{poll.question}}</h4>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <h4 class="text-dark">{{ poll.question }}</h4>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input class="form-check-input" type="checkbox" name="poll"value="option1" >
-                                     {{poll.option_A}}
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input class="form-check-input" type="checkbox" name="poll"value="option2">
-                                     {{poll.option_B}}
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input class="form-check-input" type="checkbox" name="poll" value="option3">
-                                     {{poll.option_C}}
-                                </div>
-                            </div>
 
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input class="form-check-input" type="radio" name="poll" value="option1" id="opt1">
+                                        <label class="form-check-label" for="opt1">{{ poll.option_A }}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input class="form-check-input" type="radio" name="poll" value="option2" id="opt2">
+                                        <label class="form-check-label" for="opt2">{{ poll.option_B }}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input class="form-check-input" type="radio" name="poll" value="option3" id="opt3">
+                                        <label class="form-check-label" for="opt3">{{ poll.option_C }}</label>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Submit</button>
+                                </div>
                             </div>
-                        </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
-<!-- Contact End -->
-{%endblock body%}
+</div>
+{% endblock body %}
